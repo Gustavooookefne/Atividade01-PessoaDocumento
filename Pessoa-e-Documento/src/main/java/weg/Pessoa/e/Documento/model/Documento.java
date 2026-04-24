@@ -21,4 +21,7 @@ public class Documento {
     private int numero;
 
     private String cpf;
+
+    public Documento(int numero, String cpf) {
+    }
 }
