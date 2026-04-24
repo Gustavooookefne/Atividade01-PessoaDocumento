@@ -1,4 +1,7 @@
 package weg.Pessoa.e.Documento.dto.DocumentoDto;
 
-public class DocumentoResponseDto {
+public record DocumentoResponseDto (
+        int numero,
+        String cpf
+){
 }
