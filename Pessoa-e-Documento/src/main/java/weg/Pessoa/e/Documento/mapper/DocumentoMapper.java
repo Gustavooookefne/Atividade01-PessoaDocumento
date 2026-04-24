@@ -15,5 +15,11 @@ public class DocumentoMapper {
         );
     }
 
-
+    public DocumentoResponseDto paraDto (Documento documento) {
+        return new DocumentoResponseDto(
+                documento.getId(),
+                documento.getNumero(),
+                documento.getCpf()
+        );
+    }
 }
