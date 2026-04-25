@@ -39,12 +39,12 @@ public class DocumentoService {
 
     }
 
-    public DocumentoResponseDto atualizar (DocumentoResponseDto responseDto , Long id) {
+    public DocumentoResponseDto atualizar (DocumentoRequestDto requestDto , Long id) {
         Documento documento = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Documento não encontrado"));
 
-        documento.setNumero(responseDto.numero());
-        documento.setCpf(responseDto.cpf());
+        documento.setNumero(requestDto.numero());
+        documento.setCpf(requestDto.cpf());
 
         return mapper.paraDto(documento);
 

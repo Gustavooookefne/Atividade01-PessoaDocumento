@@ -19,7 +19,7 @@ public class PessoaController {
 
     private final PessoaService service;
 
-    @PutMapping
+    @PostMapping
     public ResponseEntity<PessoaResponseDto> salvar (@RequestBody PessoaRequestDto requestDto) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(service.salvar(requestDto));
@@ -38,11 +38,11 @@ public class PessoaController {
         return ResponseEntity.ok().body(responseDto);
     }
 
-    @PostMapping("/{id}")
-    public ResponseEntity<PessoaResponseDto> atualizar (@RequestBody PessoaResponseDto responseDto ,@PathVariable Long id) {
-        PessoaResponseDto responseDto1 = service.atualizar(responseDto, id);
+    @PutMapping("/{id}")
+    public ResponseEntity<PessoaResponseDto> atualizar (@RequestBody PessoaRequestDto responseDto ,@PathVariable Long id) {
+        PessoaResponseDto responseDtoo = service.atualizar(responseDto, id);
 
-        return ResponseEntity.ok().body(responseDto1);
+        return ResponseEntity.ok().body(responseDtoo);
     }
 
     @DeleteMapping("/{id}")

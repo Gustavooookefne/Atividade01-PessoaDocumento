@@ -39,12 +39,12 @@ public class PessoaService {
         return mapper.paraDto(pessoa);
     }
 
-    public PessoaResponseDto atualizar (PessoaResponseDto pessoaResponseDto , Long id) {
+    public PessoaResponseDto atualizar (PessoaRequestDto requestDto , Long id) {
         Pessoa pessoa = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Pessoa não encontrada"));
 
-        pessoa.setNome(pessoaResponseDto.nome());
-        pessoa.setDocumento(pessoaResponseDto.documento());
+        pessoa.setNome(requestDto.nome());
+        pessoa.setDocumento(requestDto.documento());
 
         return mapper.paraDto(pessoa);
     }
